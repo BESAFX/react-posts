@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Header from "./layout/Header";
+import PostItemDetails from "./components/PostItemDetails";
+import EditPostItem from "./components/EditPostItem";
+import AddPostItem from "./components/AddPostItem";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+    render() {
+       return (
+           <Router>
+               <div>
+                   <Header />
+                   <div className={ 'pt-5' }/>
+                   <div className={ 'pt-3' }/>
+                   <div className={ 'container-fluid' }>
+                       <Route path="/" exact component={ Home } />
+                       <Route path="/about" component={ About } />
+                       <Route path="/details/:id" component={ PostItemDetails } />
+                       <Route path="/addPost" component={ AddPostItem } />
+                       <Route path="/editPost/:id" component={ EditPostItem } />
+                   </div>
+               </div>
+           </Router>
+       );
+   }
 }
 
 export default App;
