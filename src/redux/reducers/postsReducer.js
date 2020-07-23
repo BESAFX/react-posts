@@ -2,12 +2,13 @@ import {
     ADD_POST,
     DEL_POST,
     GET_POST,
-    GET_POSTS, UPDATE_POST
+    GET_POSTS, GET_POSTS_REPORT, UPDATE_POST
 } from "../actionTypes";
 
 const initState = {
     post: {},
-    posts: []
+    posts: [],
+    posts_report: {}
 }
 
 export default function (state = initState, action) {
@@ -16,6 +17,11 @@ export default function (state = initState, action) {
             return {
                 ...state,
                 posts: action.posts
+            }
+        case GET_POSTS_REPORT:
+            return {
+                ...state,
+                posts_report: action.posts_report
             }
         case GET_POST:
             return {

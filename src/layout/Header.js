@@ -23,6 +23,11 @@ function Header() {
                             <li className="nav-item">
                                 <NavLink className="nav-item nav-link"
                                          activeClassName="active"
+                                         to="/pos">POS</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-item nav-link"
+                                         activeClassName="active"
                                          to="/about">About</NavLink>
                             </li>
                         </ul>

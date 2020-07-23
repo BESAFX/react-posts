@@ -2,7 +2,9 @@ import {
     ADD_POST,
     DEL_POST,
     GET_POST,
-    GET_POSTS, UPDATE_POST
+    GET_POSTS,
+    GET_POSTS_REPORT,
+    UPDATE_POST
 } from "./actionTypes";
 import axios from 'axios';
 
@@ -10,6 +12,12 @@ export const getPosts = () => (dispatch, getState) => Promise.resolve().then(() 
     return axios.get('http://localhost:8020/posts')
                 .then(res => dispatch({ type: GET_POSTS, posts: res.data}))
                 .catch(err => console.info(err));
+});
+
+export const getPostsReport = () => (dispatch, getState) => Promise.resolve().then(() => {
+    return axios.get('http://localhost:8020/posts/report')
+        .then(res => dispatch({ type: GET_POSTS_REPORT, posts_report: res.data}))
+        .catch(err => console.info(err));
 });
 
 export const getPost = (id) => (dispatch, getState) => Promise.resolve().then(() => {
